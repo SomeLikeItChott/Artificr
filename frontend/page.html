@@ -8,8 +8,11 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+	<style type="text/css">
+	body { padding-top: 85px; }
+</style>
 
-    <nav class="navbar navbar-default navbar-fixed" role="navigation">
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -25,8 +28,15 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">About</a></li>
+        
+		<li class="navbar-btn"><span class='st_facebook_large' displayText='Facebook'></span></li>
+			<li class="navbar-btn"><span class='st_twitter_large' displayText='Tweet'></span></li>
+			<li class="navbar-btn"><span class='st_linkedin_large' displayText='LinkedIn'></span></li>
+			<li class="navbar-btn"><span class='st_pinterest_large' displayText='Pinterest'></span></li>
+		<li><a href="#">About</a></li>
         <li><a href="#">Contact</a></li>
+		
+		
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -44,15 +54,15 @@
 
 
 
-    <form >
+    <form onsubmit="return false;">
 
         <div class="row">
           <div class="col-md-3"></div>
             <div class="col-xs-12 col-md-6">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Ingredient" id='myText'>
+                    <input type="text" class="form-control" placeholder="Ingredient" id='myText' />
                     <span class="input-group-btn">
-                        <button type="button" class="btn btn-default" onclick="doSearch(this.form.Query);"/>Go</button>
+                        <button type="button" class="btn btn-default" id="myButton" onclick="doSearch(this.form.Query);"/>Go</button>
                     </span>
                 </div>
             </div>
@@ -70,11 +80,19 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
 	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script type="text/javascript">var switchTo5x=true;</script>
+		<script type="text/javascript" src="js/runner.js"></script>
+		<script type="text/javascript">stLight.options({publisher: "020323fb-d597-48cc-be56-ea2f30d0a3bb", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+	
 	<script type="text/javascript">
-	$("#myText").keyup(function(event){
-	    if(event.keyCode == 13){
-	        $("#myText").click();
-	    }
+	
+	$(document).ready(function(){
+		$("#myText").keyup(function(event){
+	   		if(event.keyCode == 13){
+				$("#myButton").trigger('click');
+	   	 	}
+		});
 	});
 	
 	   function doSearch(text)
@@ -109,6 +127,7 @@
 				   strang += "<br><br>";
 			   }
 		   }
+		   
 		   var div = document.getElementById("textResults");
 		   div.innerHTML = strang;
 	   }
