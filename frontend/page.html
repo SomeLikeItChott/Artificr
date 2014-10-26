@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 101 Template</title>
+    <title>Artificr</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <nav class="navbar navbar-default" role="navigation">
+    <nav class="navbar navbar-default navbar-fixed" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -35,36 +35,83 @@
   </head>
   <body>
     <div class="container">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
     <div class="jumbotron">
         <h1>Artificr</h1>
-        <p>Explaining artificial ingredients in food</p>
+        <p>Exploring artificial ingredients in food</p>
     
 
 
 
-    <form>
+    <form >
 
         <div class="row">
           <div class="col-md-3"></div>
             <div class="col-xs-12 col-md-6">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Ingredient">
+                    <input type="text" class="form-control" placeholder="Ingredient" id='myText'>
                     <span class="input-group-btn">
-                        <button type="button" class="btn btn-default">Go</button>
+                        <button type="button" class="btn btn-default" onclick="doSearch(this.form.Query);"/>Go</button>
                     </span>
                 </div>
             </div>
             <div class="col-md-3"></div>
         </div>
     </form>
+	
 
 </div>
-
+<div id="textResults"></div>
+</div>
     </div>
-
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+	
+	<script type="text/javascript">
+	$("#myText").keyup(function(event){
+	    if(event.keyCode == 13){
+	        $("#myText").click();
+	    }
+	});
+	
+	   function doSearch(text)
+	   {
+		   ($.ajax({
+		         url: 'data.json',
+		         dataType: "json",
+		         success: function (data) {
+					   var thing = document.getElementById('myText');
+					   displayResults(data,thing.value);
+		         }
+		   }));
+		  
+	   }
+	   function displayResults(data, text){
+		   var obj = data;
+		   //var obj = JSON.parse(data);
+		   var strang = "";
+		   var used = [];
+		   for(var x = 0; x < obj.length; x++){
+			   
+			   if(obj[x].substr(0,1000).indexOf(text.toUpperCase()) > -1){
+				   strang += obj[x];
+				   strang += "<br><br>";
+				   used += x;
+			   }
+			   
+		   }
+		   for(var x = 0; x < obj.length; x++){
+			   if(obj[x].substr(0,1000).indexOf(text) > -1 && !used.contains(x)){
+				   strang += obj[x];
+				   strang += "<br><br>";
+			   }
+		   }
+		   var div = document.getElementById("textResults");
+		   div.innerHTML = strang;
+	   }
+	</script>
   </body>
 </html>
