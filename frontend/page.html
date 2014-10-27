@@ -1,136 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Artificr</title>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Artificr</title>
 
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<!-- Bootstrap -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<style type="text/css">
 	body { padding-top: 85px; }
-</style>
+	.footer-left{float: left}
+	.footer-right{float: right;}
+	</style>
 
-    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Artificr</a>
-    </div>
+	<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Artificr</a>
+			</div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        
-		<li class="navbar-btn"><span class='st_facebook_large' displayText='Facebook'></span></li>
-			<li class="navbar-btn"><span class='st_twitter_large' displayText='Tweet'></span></li>
-			<li class="navbar-btn"><span class='st_linkedin_large' displayText='LinkedIn'></span></li>
-			<li class="navbar-btn"><span class='st_pinterest_large' displayText='Pinterest'></span></li>
-		<li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-		
-		
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
 
-  </head>
-  <body>
-    <div class="container">
-		<div class="col-md-2"></div>
-		<div class="col-md-8">
-    <div class="jumbotron">
-        <h1>Artificr</h1>
-        <p>Exploring artificial ingredients in food</p>
-    
+					<li class="navbar-btn"><span class='st_facebook_large' displayText='Facebook'></span></li>
+					<li class="navbar-btn"><span class='st_twitter_large' displayText='Tweet'></span></li>
+					<li class="navbar-btn"><span class='st_linkedin_large' displayText='LinkedIn'></span></li>
+					<li class="navbar-btn"><span class='st_pinterest_large' displayText='Pinterest'></span></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Contact</a></li>
 
 
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
 
-    <form onsubmit="return false;">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<div class="jumbotron">
+					<h1>Artificr</h1>
+					<p>Exploring artificial ingredients in food</p>
 
-        <div class="row">
-          <div class="col-md-3"></div>
-            <div class="col-xs-12 col-md-6">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Ingredient" id='myText' />
-                    <span class="input-group-btn">
-                        <button type="button" class="btn btn-default" id="myButton" onclick="doSearch(this.form.Query);"/>Go</button>
-                    </span>
-                </div>
-            </div>
-            <div class="col-md-3"></div>
-        </div>
-    </form>
-	
 
-</div>
-<div id="textResults"></div>
-</div>
-    </div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-	
+
+
+					<form onsubmit="return false;">
+						<div class="row">
+							<div class="col-md-3"></div>
+							<div class="col-xs-12 col-md-6">
+								<div class="input-group">
+									<input type="text" class="form-control" placeholder="Ingredient" id='myText' />
+									<span class="input-group-btn">
+										<button type="button" class="btn btn-default" id="myButton" onclick="doSearch(this.form.Query);"/>Go</button>
+									</span>
+								</div>
+							</div>
+							<div class="col-md-3"></div>
+						</div>
+					</form>
+				</div>
+				<div id="textResults"></div>
+			</div> 
+			<div class="col-md-2"></div>
+		</div>
+		<div class="row">
+			<footer>
+				<hr>
+				<span class="footer-left">Data from 
+					<a href="http://www.cspinet.org/reports/chemcuisine.htm">Center for Science in the Public Interest</a>
+				</span>
+				<span class="footer-right">Built with 
+					<a href="http://getbootstrap.com/">Bootstrap</a> and 
+					<a href="http://nodejs.org/">Node.js</a></span>
+			</footer>
+		</div>
+	</div>
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="js/bootstrap.min.js"></script>
+
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-		<script type="text/javascript">var switchTo5x=true;</script>
-		<script type="text/javascript" src="js/runner.js"></script>
-		<script type="text/javascript">stLight.options({publisher: "020323fb-d597-48cc-be56-ea2f30d0a3bb", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
-	
+	<script type="text/javascript">var switchTo5x=true;</script>
+	<script type="text/javascript" src="js/runner.js"></script>
+	<script type="text/javascript">stLight.options({publisher: "020323fb-d597-48cc-be56-ea2f30d0a3bb", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+
 	<script type="text/javascript">
-	
+
 	$(document).ready(function(){
 		$("#myText").keyup(function(event){
-	   		if(event.keyCode == 13){
+			if(event.keyCode == 13){
 				$("#myButton").trigger('click');
-	   	 	}
+			}
 		});
 	});
-	
-	   function doSearch(text)
-	   {
-		   ($.ajax({
-		         url: 'data.json',
-		         dataType: "json",
-		         success: function (data) {
-					   var thing = document.getElementById('myText');
-					   displayResults(data,thing.value);
-		         }
-		   }));
-		  
-	   }
-	   function displayResults(data, text){
-		   var obj = data;
+
+	function doSearch(text)
+	{
+		($.ajax({
+			url: 'data.json',
+			dataType: "json",
+			success: function (data) {
+				var thing = document.getElementById('myText');
+				displayResults(data,thing.value);
+			}
+		}));
+
+	}
+	function displayResults(data, text){
+		var obj = data;
 		   //var obj = JSON.parse(data);
 		   var strang = "";
 		   var used = [];
 		   for(var x = 0; x < obj.length; x++){
-			   
-			   if(obj[x].substr(0,1000).indexOf(text.toUpperCase()) > -1){
-				   strang += obj[x];
-				   strang += "<br><br>";
-				   used += x;
-			   }
-			   
+
+		   	if(obj[x].substr(0,1000).indexOf(text.toUpperCase()) > -1){
+		   		strang += obj[x];
+		   		strang += "<br><br>";
+		   		used += x;
+		   	}
+
 		   }
 		   for(var x = 0; x < obj.length; x++){
-			   if(obj[x].substr(0,1000).indexOf(text) > -1 && !used.contains(x)){
-				   strang += obj[x];
-				   strang += "<br><br>";
-			   }
+		   	if(obj[x].substr(0,1000).indexOf(text) > -1 && !used.contains(x)){
+		   		strang += obj[x];
+		   		strang += "<br><br>";
+		   	}
 		   }
 		   
 		   var div = document.getElementById("textResults");
 		   div.innerHTML = strang;
-	   }
-	</script>
-  </body>
-</html>
+		}
+		</script>
+	</body>
+	</html>
